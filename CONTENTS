@@ -1,0 +1,65 @@
+Entry: SPSbalan
+Aliases: SPSbalan
+Keywords: supervised propensity scoring covariate independence balance
+Description: check for balance in X-covariate distributions by treatment within PS bins
+URL: ../R\_HOME/library/USPS/html/SPSbalan.html
+
+Entry: SPSloess
+Aliases: SPSloess
+Keywords: supervised propensity scoring LOESS outcome smoothing
+Description: LOESS smoothing of outcome by treatment vs propensity score
+URL: ../R\_HOME/library/USPS/html/SPSloess.html
+
+Entry: SPSlogit
+Aliases: SPSlogit
+Keywords: supervised propensity scoring logistic regression prediction
+Description: fit supervised propensity scores using logistic regression
+URL: ../R\_HOME/library/USPS/html/SPSlogit.html
+
+Entry: SPSnbins
+Aliases: SPSnbins
+Keywords: supervised propensity scoring number adjacent bins
+Description: change the number of adjacent PS bins for accumulation
+URL: ../R\_HOME/library/USPS/html/SPSnbins.html
+
+Entry: SPSoutco
+Aliases: SPSoutco
+Keywords: supervised propensity scoring LTD outcome differences
+Description: Average within PS bin LTDs accross bins
+URL: ../R\_HOME/library/USPS/html/SPSoutco.html
+
+Entry: SPSsmoot
+Aliases: SPSsmoot
+Keywords: supervised propensity scoring spline outcome smoothing
+Description: spline smoothing of outcome by treatment vs propensity score
+URL: ../R\_HOME/library/USPS/html/SPSsmoot.html
+
+Entry: UPShclus
+Aliases: UPShclus
+Keywords: unsupervised propensity scoring hierarchical clustering
+Description: hierarchically cluster patients on specified baseline x-covariates
+URL: ../R\_HOME/library/USPS/html/UPShclus.html
+
+Entry: UPSaccum
+Aliases: UPSaccum
+Keywords: unsupervised propensity scoring accumulation clustering
+Description: specify parameters and prepare to accumulate clustering sensitivity statistics
+URL: ../R\_HOME/library/USPS/html/UPSaccum.html
+
+Entry: UPSnnltd
+Aliases: plot.UPSnnltd, print.UPSnnltd
+Keywords: unsupervised propensity scoring nearest neighbor LATE differences
+Description: describe the LTD distribution for a specified number of clusters
+URL: ../R\_HOME/library/USPS/html/UPSnntd.html
+                        
+Entry: UPSivadj
+Aliases: plot.UPSivadj, print.UPSivadj
+Keywords: unsupervised propensity scoring instrumental variable adjustment
+Description: plot LATEs vs within cluster PS treatment percentages and fit a linear trend
+URL: ../R\_HOME/library/USPS/html/UPSivadj.html
+
+Entry: UPSgraph
+Aliases: UPSgraph
+Keywords: unsupervised propensity scoring sensitivity of LTDs and LATEs to number of clusters
+Description: sensitivity plot of LTD and LATE mean +/-2 sigma limits vs numbers of clusters
+URL: ../R\_HOME/library/USPS/html/UPSgraph.html

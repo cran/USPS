@@ -1,0 +1,15 @@
+SPSbalan                Check for Balance of X-factors Distributions by Treatment within PS Bins
+SPSloess                LOESS Smoothing of Treatment Outcomes vs Propensity Scores
+SPSlogit                Supervised Propensity Scoring via Logistic Regression
+SPSnbins                Change Number of Adjacent Supervised PS Bins
+SPSoutco                Average within PS Bin LTDs across Bins
+SPSsmoot                Spline Smoothing of Treatment Outcomes vs Propensity Scores             
+UPSaccum                Specify Parameters for Accumulation Within and Across Clusters
+UPShclus                Unsupervised Hierarchical Clustering of Patients in X-space
+UPSgraph                Display Sensitivity of the LTD Distribution to Number of Clusters
+UPSivadj                Identify and Display Instrumental Variable "Local Average Treatment
+                        Effects" (LATEs) versus PS Treatment Percentages for a Specified Number
+                        of Clusters 
+UPSnnltd                Identify and Display the Nearest Neighbor "Local Treatment Difference"
+                        (LTD) Distribution for a Specified Number of Clusters
+                          
