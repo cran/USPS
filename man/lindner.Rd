@@ -39,6 +39,10 @@
   cost effective survival advantage in high volume interventional practice.
   \emph{Am Heart J} \bold{140}: 603--610.
 
-  Obenchain RL. (2005) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+}
+\examples{
+    # Demo of USPS functionality on the lindner dataset...
+    demo(abcix)
 }
 \keyword{datasets}

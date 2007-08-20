@@ -41,7 +41,7 @@
   cost effective survival advantage in high volume interventional practice.
   \emph{Am Heart J} \bold{140}: 603--610.
 
-  Obenchain RL. (2005) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
@@ -51,7 +51,7 @@
   Using Subclassification on a Propensity Score. \emph{J Amer Stat Assoc}
   \bold{79}: 516--524.
 }
-\author{Bob Obenchain <sunsetstats@earthlink.net>}
+\author{Bob Obenchain <softrx@iquest.net>}
 \seealso{\code{\link{SPSbalan}}, \code{\link{SPSnbins}} and \code{\link{SPSoutco}}.}
 \examples{
   data(lindner)

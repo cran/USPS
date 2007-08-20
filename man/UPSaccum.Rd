@@ -1,6 +1,6 @@
 \name{UPSaccum}
 \alias{UPSaccum}
-\title{Prepare for Accumulation of (Outcome,Treatment) Results in Unsupervised Propensiy
+\title{Prepare for Accumulation of (Outcome,Treatment) Results in Unsupervised Propensity
  Scoring.
 }
 \description{Specify key result accumulation parameters: Treatment t-Factor, Outcome
@@ -37,18 +37,18 @@
   \item{scedas}{Scedasticity assumption: "homo" or "hete"}
   \item{accobj}{Name of the object for accumulation of I-plots to be ultimately displayed
      using UPSgraph().}
-  \item{nnymax}{Maximum NN LATE Difference Standard Error observed; Upper NN plot limit;
+  \item{nnymax}{Maximum NN LTD Standard Error observed; Upper NN plot limit;
      initialized to zero.}
-  \item{nnxmin}{Minimum NN LATE Difference observed; Left NN plot limit; initialized to zero.}
-  \item{nnxmax}{Maximum NN LATE Difference observed; Right NN plot limit; initialized to zero.}
+  \item{nnxmin}{Minimum NN LTD observed; Left NN plot limit; initialized to zero.}
+  \item{nnxmax}{Maximum NN LTD observed; Right NN plot limit; initialized to zero.}
 }
 \references{
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2005) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 }
-\author{Bob Obenchain <sunsetstats@earthlink.net>}
+\author{Bob Obenchain <softrx@iquest.net>}
 \seealso{\code{\link{UPSnnltd}}, \code{\link{UPSivadj}} and \code{\link{UPShclus}}.}
 \examples{
   data(lindner)

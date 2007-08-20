@@ -10,6 +10,7 @@ function (x, ...)
 "plot.SPSloess" <-
 function (x, tcol = "blue", ucol = "red", dcol = "green3", ...) 
 {
+    # First plot...
     plot(x$losub0[, 1], x$losub0[, 2], type = "p", ann = FALSE, 
         col = tcol, pch = 21)
     lines(x$losub0[, 1], x$losub0[, 4], type = "l", col = tcol, 
@@ -20,38 +21,36 @@ function (x, tcol = "blue", ucol = "red", dcol = "green3", ...)
         lty = "dashed")
     title(main = paste("Outcomes and PS Loess Fit, Span =", x$span), 
         ylab = paste("Observed and Smoothed", x$yvar), xlab = "Estimated Propensity Score")
-    cat("\nPress Enter to Continue...\n")
-    scan()
+    opar <- par(ask = dev.interactive(orNone = TRUE))
+    # Second plot...
     plot(x$losub0[, 1], x$losub0[, 4], type = "l", ann = FALSE, 
         col = tcol, lty = "solid")
     lines(x$losub1[, 1], x$losub1[, 4], type = "l", col = ucol, 
         lty = "dashed")
     title(main = paste("PS Loess Fit, Span =", x$span), ylab = paste("Smoothed", 
         x$yvar), xlab = "Estimated Propensity Score")
-    cat("Press Enter to Continue...\n")
-    scan()
+    # Third plot...
     plot(x$logrid[, 1], 0.1 * x$logrid[, 10], type = "p", ann = FALSE, 
         pch = 21)
     lines(x$logrid[, 1], x$logrid[, 11], type = "l", col = dcol, 
         lty = "solid")
     title(main = "PS Probability Density", xlab = "Estimated Propensity Score")
-    cat("Press Enter to Continue...\n")
-    scan()
+    par(opar)
     NULL
 }
 
 "plot.SPSoutco" <-
 function (x, ...) 
 {
+    # First plot...
     barplot(t(as.matrix(x$binfreq[, 2:3])), beside = TRUE, names.arg = as.vector(x$binfreq[, 
         1]), main = "Frequencies by PS Bin")
     if (x$youtype == "contin") {
-        cat("\n\nPress ENTER to continue...\n")
-        scan()
+        opar <- par(ask = dev.interactive(orNone = TRUE))
+        # Second plot...
         barplot(t(as.matrix(x$binmean[, 2:3])), beside = TRUE, 
             names.arg = as.vector(x$binmean[, 1]), main = "Outcome Means by PS Bin")
-        cat("\n\nPress ENTER to continue...\n")
-        scan()
+        # Third plot...
         plot(x$pbindif, x$pbinsde, ann = FALSE, type = "n", ylim = c(0, 
             max(x$pbinsde, na.rm = TRUE)))
         symbols(x$pbindif, x$pbinsde, circles = x$pbinsiz, inches = 0.25, 
@@ -66,12 +65,14 @@ function (x, ...)
             x$bins), xlab = "Within Bin Treatment Difference", 
             ylab = "Difference Standard Deviation", sub = paste("Number of Informative PS Bins =", 
                 length(na.omit(x$pbinsde))))
+        par(opar)
     }
 }
 
 "plot.SPSsmoot" <-
 function (x, tcol = "blue", ucol = "red", dcol = "green3", ...) 
 {
+    # First plot...
     plot(x$spsub0[, 1], x$spsub0[, 2], type = "p", ann = FALSE, 
         col = tcol, pch = 21)
     lines(x$spsub0[, 1], x$spsub0[, 4], type = "l", col = tcol, 
@@ -83,25 +84,61 @@ function (x, tcol = "blue", ucol = "red", dcol = "green3", ...)
     title(main = paste("Outcomes and PS Smoothing Splines, df =", 
         x$df), ylab = paste("Observed and Smoothed", x$yvar), 
         xlab = "Estimated Propensity Score")
-    cat("\nPress Enter to Continue...\n")
-    scan()
+    opar <- par(ask = dev.interactive(orNone = TRUE))
+    # Second plot...
     plot(x$spsub0[, 1], x$spsub0[, 4], type = "l", ann = FALSE, 
         col = tcol, lty = "solid")
     lines(x$spsub1[, 1], x$spsub1[, 4], type = "l", col = ucol, 
         lty = "dashed")
     title(main = paste("PS Smoothing Splines, df =", x$df), ylab = paste("Smoothed", 
         x$yvar), xlab = "Estimated Propensity Score")
-    cat("Press Enter to Continue...\n")
-    scan()
+    # Third plot...
     plot(x$ssgrid[, 1], 0.1 * x$ssgrid[, 10], type = "p", ann = FALSE, 
         pch = 21)
     lines(x$ssgrid[, 1], x$ssgrid[, 11], type = "l", col = dcol, 
         lty = "solid")
     title(main = "PS Probability Density", xlab = "Estimated Propensity Score")
-    cat("Press Enter to Continue...\n")
-    scan()
+    par(opar)
     NULL
 }
+
+"plot.UPSaltdd" <- 
+function(x, breaks="Sturges", ...)
+{
+    opar <- par(no.readonly = TRUE, ask = dev.interactive(orNone = TRUE))
+    on.exit(par(opar))
+    if( x$NNobj=="NA" ) par(mfrow = c(2, 1)) else par(mfrow = c(2, 2))
+    nx <- length(x$altdd[,1])
+    if( x$NNobj!="NA") {
+        xmin <- min(x$alxmin, x$nnlxmin)
+        xmax <- max(x$alxmax, x$nnlxmax)
+        }
+    else {
+        xmin <- x$alxmin
+        xmax <- x$alxmax
+        }
+    plot(x$altdcdf, x$qq, ann = FALSE, type = "l", xlim = c(xmin,xmax))
+    par(lty=1)
+    title(main=paste("Artificial LTD CDF"),
+        ylab = "Probability Less Than",
+        xlab =paste("From ", nx, "Random, Informative Clusters within", x$reps, "reps of", x$clus))
+    hist(x$altdcdf, breaks=breaks, xlim=c(xmin,xmax),
+        main=paste("Artificial LTD Histogram"), ylab = "Probability Density",
+        xlab = paste("Artificial Effects of", x$trtm, "on", x$yvar, "using Random Clusters.")
+        )
+    if( x$NNobj!="NA" ) {
+        nx <- length(x$nnltdd[,1])
+        plot(x$nnltdcdf, x$nq, ann = FALSE, type = "l", xlim = c(xmin,xmax))
+        par(lty=1)
+        title(main=paste("Nearest Neighbor LTD CDF"),
+            ylab = "Probability Less Than",
+            xlab =paste("From ", nx, "Informative Clusters within", x$clus))
+        hist(x$nnltdcdf, breaks=breaks, xlim=c(xmin,xmax),
+            main=paste("Nearest Neighbor LTD Histogram"), ylab = "Probability Density",
+            xlab = paste("Local Effects of", x$trtm, "on", x$yvar, "using Relevant Clusters.")
+            )
+        }
+    }
 
 "plot.UPShclus" <-
 function (x, ...) 
@@ -134,36 +171,89 @@ function (x, ...)
             abline(x$ivfit)
         title(main = paste("Unsupervised IV Clusters =", x$actclust), 
             xlab = "Within-Cluster Treatment Percentage (PS)", 
-            ylab = "Observed Outcome Average", sub = "Symbol Area proportional to Cluster Size")
+            ylab = "Observed LATE", sub = "Symbol Area proportional to Cluster Size")
     }
 }
 
 "plot.UPSnnltd" <-
-function (x, pballs = TRUE, ...) 
+function (x, pballs = TRUE, nnplot = "snob", nnalpha = 1.4, ...) 
 {
-    UPSpars <- get("UPSaccum.pars")
     if (x$youtype == "contin") {
-        inchsz <- 2 * max(x$pbinsiz)^2/x$symsiz
-        plot(x$pbindif, x$pbinsde, ann = FALSE, type = "n", ylim = c(0, 
-            as.numeric(UPSpars[8])), xlim = c(as.numeric(UPSpars[9]), 
-            as.numeric(UPSpars[10])))
-        symbols(x$pbindif, x$pbinsde, circles = x$pbinsiz, inches = inchsz, 
-            add = TRUE)
-        par(lty = 1)
-        abline(v = 0)
-        par(lty = 2)
-        abline(v = x$awbdif)
-        par(lty = 3)
-        abline(v = x$wwbdif)
-        if (pballs) {
-            symbols(x$awbdif, x$awbsde, circles = x$awbsde, inches = 0.25, 
-                bg = "red", add = TRUE)
-            symbols(x$wwbdif, x$wwbsde, circles = x$wwbsde, inches = 0.25, 
-                bg = "green3", add = TRUE)
+        UPSpars <- get("UPSaccum.pars")
+        if (nnplot != "snob" && nnplot != "dens" && nnplot != "cdf" && nnplot != "seq")
+            nnplot <- "all"
+        opar <- par(no.readonly = TRUE, ask = dev.interactive(orNone = TRUE))
+        on.exit(par(opar))
+        if (nnplot == "all")
+            par(mfrow=c(2,2))
+        else
+            par(mfrow=c(1,1))
+        if (nnplot == "all" || nnplot == "dens" || nnplot == "cdf" || nnplot == "seq") {
+            nm <- complete.cases(x$pbinsde)
+            nn <- as.vector(x$pbinsiz[nm]^2)
+            xx <- as.vector(x$pbindif[nm])
+            ww <- as.vector(x$pbinsde[nm]^-2)
+            ww <- round( sum(nn)* ww / sum(ww) )
+            ltdfit <- ssden(~xx, weight = ww, alpha = nnalpha, maxiter = 30)
+            xp <- seq(as.numeric(UPSpars[9]),as.numeric(UPSpars[10]), len=101)
         }
-        title(main = paste("Unsupervised Nearest Neighbor Clusters =", 
-            x$numclust), xlab = "LATE Difference", ylab = "LATE Dif. Std. Error", 
-            sub = paste("Number of Informative Clusters =", length(na.omit(x$pbinsde))))
+        if (nnplot == "all" || nnplot == "seq" || nnplot == "snob") {
+            inchsz <- 2 * max(x$pbinsiz)^2/x$symsiz
+            plot(x$pbindif, x$pbinsde, ann = FALSE, type = "n",
+                ylim = c(0, as.numeric(UPSpars[8])),
+                xlim = c(as.numeric(UPSpars[9]), as.numeric(UPSpars[10])))
+            symbols(x$pbindif, x$pbinsde, circles = x$pbinsiz, inches = inchsz, 
+                add = TRUE)
+            par(lty = 2, col = "red")
+            abline(v = x$awbdif)
+            par(lty = 3, col = "green3")
+            abline(v = x$wwbdif)
+            par(lty = 1, col = "black")
+            abline(v = 0)
+            if (pballs) {
+                symbols(x$awbdif, x$awbsde, circles = x$awbsde, inches = 0.25, 
+                    bg = "red", add = TRUE)
+                symbols(x$wwbdif, x$wwbsde, circles = x$wwbsde, inches = 0.25, 
+                    bg = "green3", add = TRUE)
+            }
+            title(main = paste("Unsupervised NN/LTD Snow Balls for",
+                length(na.omit(x$pbinsde)), "of", x$numclust, "Clusters"),
+                xlab = "Local Treatment Difference (LTD)", ylab = "LTD Standard Error")
+            if (nnplot == "seq") {
+                cat("\nPress the Enter key to view the DENS nnplot...")
+                scan()
+            }
+        }
+        if (nnplot == "all" || nnplot == "seq" || nnplot == "dens") {
+            plot(xp, dssden(ltdfit, xp), ann=FALSE, type="l", lty=1, col="blue")
+            par(lty=2, col="red")
+            abline(v=x$awbdif)
+            par(lty=3, col="green3")
+            abline(v=x$wwbdif)
+            par(lty=1, col="black")
+            abline(v=0)           
+            title(main=paste("NN/LTD Weighted Density for", length(na.omit(x$pbinsde)),
+               "Informative Clusters"), xlab = "Local Treatment Difference (LTD)",
+                ylab = "gss Probability Density")
+            if (nnplot == "seq") {
+                cat("\nPress the Enter key to view the CDF nnplot...")
+                scan()
+            }
+        }
+        if (nnplot == "all" || nnplot == "seq" || nnplot == "cdf") {
+            qq <- seq(0,1,len=51)
+            cdf <- qssden(ltdfit, qq)
+            plot(cdf, qq, ann=FALSE, type="l", lty=1, col="blue")
+            par(lty=2, col="red")
+            abline(v=x$awbdif)
+            par(lty=3, col="green3")
+            abline(v=x$wwbdif)
+            par(lty=1, col="black")
+            abline(v=0)            
+            title(main=paste("NN/LTD Weighted CDF for", length(na.omit(x$pbinsde)),
+               "Informative Clusters"), xlab = "Local Treatment Difference (LTD)",
+                ylab = "gss Probability Less Than")
+        }
     }
 }
 
@@ -240,7 +330,7 @@ function (x, ...)
 "print.SPSoutco" <-
 function (x, ...) 
 {
-    cat("\nSPSoutco Object: Within Bin Outcome Treatment Differences\n")
+    cat("\nSPSoutco Object: Within Bin Outcome LTD\n")
     cat("Data Frame input:", x$dframe, "\n")
     cat("Outcome Y variable:", x$yvar, "\n")
     cat("Treatment difference:", x$PStdif, "\n")
@@ -302,6 +392,31 @@ function (x, ...)
         "\n\n")
 }
 
+"print.UPSaltdd" <-
+function(x, ...)
+{
+    cat("\nUPSaltdd Object: Artificial Distribution of LTDs for random clusters...\n")
+    cat("Data Frame:", x$dframe, "\n")
+    cat("Outcome Variable:", x$yvar, "\n")
+    cat("Treatment Factor:", x$trtm, "\n")
+    cat("Scedasticity assumption:", x$scedas, "\n")
+    cat("Number of Replications:", x$reps, "\n")
+    cat("Number of Clusters per Replication:", x$clus, "\n")
+    cat("Total Number of Informative Clusters =", length(x$altdd[,1]), "\n" )
+    cat("\n    Mean Artificial Treatment Difference =", mean(x$altdd[,1]))
+    cat("\n    Number of Smoothed Sample Quantiles  =", length(x$altdcdf))
+    cat("\n    Mean of Smoothed Sample Quantiles    =", mean(x$altdcdf))
+    cat("\n    Std. Deviation of Sample Quantiles   =", var(x$altdcdf)^0.5, "\n")
+    if( x$NNobj!="NA" ) {
+        cat("\nUPSnnltd Object:", x$NNobj, "\n")
+        cat("Number of Informative Clusters =", length(x$nnltdd[,1]), "\n" )
+        cat("\n    Mean of Observed LTD Distribution    =", mean(x$nnltdd[,1]))
+        cat("\n    Number of Smoothed Sample Quantiles  =", length(x$nnltdcdf))
+        cat("\n    Mean of Smoothed Sample Quantiles    =", mean(x$nnltdcdf))
+        cat("\n    Std. Deviation of Sample Quantiles   =", var(x$nnltdcdf)^0.5, "\n")
+        }
+    }
+
 "print.UPShclus" <-
 function (x, ...) 
 {
@@ -315,7 +430,7 @@ function (x, ...)
 "print.UPSivadj" <-
 function (x, ...) 
 {
-    cat("\nUPSivadj Object: Clustering Instrumental Variable Adjustment\n")
+    cat("\nUPSivadj Object: Clustering Instrumental Variable (IV) Adjustment\n")
     cat("Hierarchical Clustering object:", x$hiclus, "\n")
     cat("Data Frame input:", x$dframe, "\n")
     cat("Treatment variable:", x$trtm, "\n")
@@ -354,7 +469,7 @@ function (x, ...)
 "print.UPSnnltd" <-
 function (x, ...) 
 {
-    cat("\nUPSnnltd Object: Nearest Neighbor LATE Differences\n")
+    cat("\nUPSnnltd Object: Nearest Neighbor Local Treatment Differences\n")
     cat("Hierarchical Clustering object:", x$hiclus, "\n")
     cat("Data Frame input:", x$dframe, "\n")
     cat("Outcome variable:", x$yvar, "\n")
@@ -521,7 +636,7 @@ function (dframe, trtm, pscr, yvar, faclev = 3, deg = 2, span = 0.75,
     logrid$F0 <- fit0$fit
     logrid$S0 <- fit0$se.fit
     logrid$C0 <- hist(losub0$PS, breaks = seq(0, 1, length = 101), 
-        plot = FALSE, probability = FALSE)$counts
+        plot = FALSE)$counts
     loobj1 <- loess(YVAR ~ PS, losub1, family = fam, degree = deg, 
         span = span)
     losub1$FIT <- fitted.values(loobj1)
@@ -529,11 +644,11 @@ function (dframe, trtm, pscr, yvar, faclev = 3, deg = 2, span = 0.75,
     logrid$F1 <- fit1$fit
     logrid$S1 <- fit1$se.fit
     logrid$C1 <- hist(losub1$PS, breaks = seq(0, 1, length = 101), 
-        plot = FALSE, probability = FALSE)$counts
+        plot = FALSE)$counts
     logrid$DIF <- logrid$F1 - logrid$F0
     logrid$SED <- sqrt(logrid$S0^2 + logrid$S1^2)
     logrid$HST <- hist(lofit$PS, breaks = seq(0, 1, length = 101), 
-        plot = FALSE, probability = TRUE)$counts
+        plot = FALSE)$counts
     logrid$DEN <- density(lofit$PS, bw = "nrd0", kernel = "gaussian", 
         n = 100, from = 0.005, to = 0.995)$y
     grid <- na.omit(logrid)
@@ -806,6 +921,41 @@ function (dframe, trtm, pscr, yvar, faclev = 3, df = 5, spar = NULL,
     SPSolist
 }
 
+"UPlinint" <-
+function(q, xmin, n, x, w)
+{
+    # linear interpolation within a CDF...
+    
+    if( q < 0 || q > 1 )
+        stop("Desired quantiles must be between 0 and 1, inclusive.")
+    cdf <- xmin
+    while( TRUE ) {
+        if( q == 0 ) break
+        if( q == 1 ) {
+            cdf <- x[n]
+            break
+            }
+        j <- 0
+        qlo <- 0
+        qhi <- w[1] + 0.0000001
+        while( q > qhi ) {
+             j <- j+1
+             if( j > (n-1) ) {
+                 j <- j-1
+                 break
+                 }
+             qlo <- qhi
+             qhi <- qhi + w[(j+1)]
+             }
+        if( j== 0 )
+            cdf <- xmin + (q-qlo)*(x[1]-xmin)/(qhi-qlo)
+        else
+            cdf <- x[j] + (q-qlo)*(x[(j+1)]-x[j])/(qhi-qlo)
+        break
+        }    
+    cdf
+}
+
 "UPSaccum" <-
 function (hiclus, dframe, trtm, yvar, faclev = 3, scedas = "hete", 
     accobj = "UPSframe") 
@@ -844,6 +994,179 @@ function (hiclus, dframe, trtm, yvar, faclev = 3, scedas = "hete",
     assign(accobj, accdf, env = .GlobalEnv)
 }
 
+"UPSaltdd" <-
+function(dframe, trtm, yvar, faclev=3, scedas="homo", NNobj=NA, clus=50, reps=10, seed=12345)
+{
+    # Compute the Artificial LTD Distribution for random patient clusterings  ...i.e. include
+    # the least or less relevant comparisons as well as those neurtal, more or most relevant.
+    
+    if(missing(dframe)||!inherits(dframe,"data.frame"))
+        stop("First argument to UPSaltdd must be an existing Data Frame.")
+    if(missing(trtm))
+        stop("Second argument to UPSaltdd must name the Treatment Factor.")
+    trtm <- deparse(substitute(trtm))
+    if(!is.element(trtm,dimnames(dframe)[[2]]))
+        stop("Treatment Factor must be present in the Data Frame.")
+    if(length(table(dframe[,trtm]))!=2)
+        stop("Treatment Factor must assume exactly two different levels.")
+    if(missing(yvar))
+        stop("Third argument to UPSaltdd must name a continuous Outcome Variable.")
+    yvar <- deparse(substitute(yvar))
+    if(!is.element(yvar,dimnames(dframe)[[2]]))
+        stop("Outcome Variable must be present in the Data Frame.")
+    if(scedas!="hete") scedas <- "homo" # variances either homoscedastic or heteroscedastic
+    NNobjnam <- deparse(substitute(NNobj))
+    if(NNobjnam!="NA"&&!inherits(NNobj,"UPSnnltd"))
+        stop("The NNobj argument to UPSaltdd must either be NA or an existing UPSnnltd object.")
+    if(NNobjnam!="NA")
+       clus <- NNobj$numclust
+    if(clus < 2)
+       clus <- 2
+    ytvars <- c(yvar,trtm)
+    ytdata <- dframe[,ytvars]
+    if(length(table(ytdata[,1])) <= faclev)
+        stop("To be considered continuous, Outcome Variable must assume more than faclev values.")
+    pats <- length(ytdata[,1])
+    altdg <- "Agroups"
+    ALmean <- as.matrix(tapply(ytdata[,1], ytdata[,2], na.rm = TRUE, mean))
+    ALtrtm <- paste(trtm, "=", dimnames(ALmean)[[1]])
+    # Start forming UPSaltdd output list...
+    dframe <- deparse(substitute(dframe))
+
+    ALolist <- list(dframe=dframe, trtm=trtm, yvar=yvar, faclev=faclev, scedas=scedas,
+                    NNobj=NNobjnam, clus=clus, reps=reps, pats=pats, seed=seed)
+    set.seed(seed)   # Set seed for Monte Carlo pseudo random sequence...
+
+    for(i in 1:reps) {
+
+       xrand <- as.data.frame(cbind(rnorm(pats),rnorm(pats)))
+       crand <- kmeans(xrand, clus)
+       crand <- as.data.frame(crand$cluster)
+
+       ALmean <- as.matrix(tapply(ytdata[,1], list(crand[,1], ytdata[,2]), na.rm = TRUE, mean))
+       ALmean <- cbind(matrix(1:clus, clus, 1), ALmean)
+       dimnames(ALmean) <- list(1:clus, c("ALC", ALtrtm[1], ALtrtm[2]))
+       ALmean <- as.data.frame(ALmean)
+       ALmean[,"ALC"] <- as.factor(ALmean[,"ALC"])
+       ALvars <- as.matrix(tapply(ytdata[,1], list(crand[,1], ytdata[,2]), na.rm = TRUE, var))
+       ALfreq <- as.matrix(table(crand[,1], ytdata[,2]))
+       ALvars <- ALvars / ALfreq  # redefined below when scedas=="homo"
+       ALvars[ALvars==Inf] <- NA  
+
+       altdif <- na.omit( ALmean[,3] - ALmean[,2] )
+       if( scedas=="homo" ) {
+           ALvars <- 1 / as.matrix(table(crand[,1], ytdata[,2]))
+           ALvars[ALvars==Inf] <- NA
+           }
+       altdwt <- ALvars[,2] + ALvars[,1]
+       altdwt <- na.omit( 1 / altdwt )
+       altdwt <- altdwt / sum(altdwt)
+       if( i == 1 ) {
+           altdacc <- as.matrix(na.omit(cbind(altdif,altdwt)))
+           }
+       else {
+           altdacc <- rbind( altdacc, as.matrix(na.omit(cbind(altdif,altdwt))))
+           }
+       }
+    alxmin <- min(altdacc[,1])
+    alxmax <- max(altdacc[,1])
+    alymax <- max(altdacc[,2])
+    ALolist <- c(ALolist, list(altdd=altdacc, alxmin=alxmin, alxmax=alxmax, alymax=alymax))
+    
+    xx <- as.vector(altdacc[,1])  
+    yy <- as.vector(altdacc[,2])       
+    oo <- order(xx)
+    xx <- xx[oo]
+    yy <- yy[oo]
+    nx <- length(xx)
+    # Locate and eliminate duplicate xx values...
+    j <- 0
+    if( nx > 1 ) {
+        for(i in seq(nx, 2, by=-1) ) {
+            if( xx[(i-1)]==xx[i] ) {
+                yy[(i-1)] <- yy[(i-1)]+yy[i]
+                xx[i] <- alxmax + 9999
+                j <- j+1
+                }
+            }
+        }
+    if( j > 0 ) {
+        oo <- order(xx)
+        xx <- xx[oo]
+        yy <- yy[oo]
+        nx <- nx - j
+        }
+    yy <- yy/sum(yy[1:nx])
+    # Locate mid-points between jumps...
+    if( nx > 2 ) {
+        for(i in 2:(nx-1)) {
+            xx[i] <- (xx[i]+xx[(i+1)])/2
+            }
+        }
+    qq <- seq(0,1,len=min(1001,1+round(nx*4)))
+    cdf <- qq
+    for(i in 1:length(qq)) {
+        cdf[i] <- UPlinint(qq[i], alxmin, nx, xx, yy)
+        }
+
+    ALolist <- c(ALolist, list(altdcdf=cdf, qq=qq))
+    
+    if(NNobjnam!="NA") {
+       nnltdif <- NNobj$pbindif
+       nnltdwt <- NNobj$pbinsde
+       nnltdsm <- min(mean(nnltdwt, na.rm=TRUE), min(nnltdwt[nnltdwt!=0.0]))
+       nnltdwt[nnltdwt==0.0] <- nnltdsm
+       nnltdwt <- 1 / nnltdwt^2
+       nnltdacc <- as.matrix(na.omit(cbind(nnltdif,nnltdwt)))
+       nnltdacc[,2] <- nnltdacc[,2] / sum(nnltdacc[,2])
+       nnlxmin <- min(nnltdacc[,1])
+       nnlxmax <- max(nnltdacc[,1])
+       nnlymax <- max(nnltdacc[,2])
+       ALolist <- c(ALolist, list(nnltdd=nnltdacc, nnlxmin=nnlxmin, nnlxmax=nnlxmax, nnlymax=nnlymax))
+    
+       xx <- as.vector(nnltdacc[,1])  
+       yy <- as.vector(nnltdacc[,2])       
+       oo <- order(xx)
+       xx <- xx[oo]
+       yy <- yy[oo]
+       nx <- length(xx)
+       # Locate and eliminate duplicate xx values...
+       j <- 0
+       if( nx > 1 ) {
+          for(i in seq(nx, 2, by=-1) ) {
+               if( xx[(i-1)]==xx[i] ) {
+                   yy[(i-1)] <- yy[(i-1)]+yy[i]
+                   xx[i] <- alxmax + 9999
+                   j <- j+1
+                   }
+               }
+           }
+       if( j > 0 ) {
+           oo <- order(xx)
+           xx <- xx[oo]
+           yy <- yy[oo]
+           nx <- nx - j
+           }
+       yy <- yy/sum(yy[1:nx])
+       # Locate mid-points between jumps...
+       if( nx > 2 ) {
+           for(i in 2:(nx-1)) {
+               xx[i] <- (xx[i]+xx[(i+1)])/2
+               }
+           }
+       qq <- seq(0,1,len=min(501,1+round(nx*4)))
+       cdf <- qq
+       for(i in 1:length(qq)) {
+           cdf[i] <- UPlinint(qq[i], alxmin, nx, xx, yy)
+           }
+
+       ALolist <- c(ALolist, list(nnltdcdf=cdf, nq=qq))
+       }
+    
+    class(ALolist) <- "UPSaltdd"
+    ALolist
+}
+
 "UPSgraph" <-
 function (nncol = "red", nwcol = "green3", ivcol = "blue", ...) 
 {
@@ -876,8 +1199,8 @@ function (nncol = "red", nwcol = "green3", ivcol = "blue", ...)
     x <- UPSdf[UPSdf$NNIV == "NN", ]
     points(x$bins, x$tdif, pch = 21, col = nncol)
     abline(h = UPSdf$tdif[1], lty = 2, col = nncol)
-    title(main = "Unsupervised LATE Difference Sensitivity", 
-        xlab = "Number of Clusters", ylab = "Mean +/-2 Sigma LATE Difference")
+    title(main = "Unsupervised LTD Distributiun Sensitivity", 
+        xlab = "Number of Clusters", ylab = "Mean LTD +/-2 Sigma LTD")
 }
 
 "UPShclus" <-

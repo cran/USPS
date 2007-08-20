@@ -34,11 +34,11 @@ Keywords: supervised propensity scoring spline outcome smoothing
 Description: spline smoothing of outcome by treatment vs propensity score
 URL: ../R\_HOME/library/USPS/html/SPSsmoot.html
 
-Entry: UPShclus
-Aliases: UPShclus
-Keywords: unsupervised propensity scoring hierarchical clustering
-Description: hierarchically cluster patients on specified baseline x-covariates
-URL: ../R\_HOME/library/USPS/html/UPShclus.html
+Entry: UPSaltdd
+Aliases: plot.UPSaltdd, print.UPSaltdd
+Keywords: artificial LTD distribution random clusterings
+Description: describe the Artificial LTD distribution for a specified number of clusters
+URL: ../R\_HOME/library/USPS/html/UPSaltdd.html
 
 Entry: UPSaccum
 Aliases: UPSaccum
@@ -46,20 +46,26 @@ Keywords: unsupervised propensity scoring accumulation clustering
 Description: specify parameters and prepare to accumulate clustering sensitivity statistics
 URL: ../R\_HOME/library/USPS/html/UPSaccum.html
 
+Entry: UPShclus
+Aliases: UPShclus
+Keywords: unsupervised propensity scoring hierarchical clustering
+Description: hierarchically cluster patients on specified baseline x-covariates
+URL: ../R\_HOME/library/USPS/html/UPShclus.html
+
 Entry: UPSnnltd
 Aliases: plot.UPSnnltd, print.UPSnnltd
-Keywords: unsupervised propensity scoring nearest neighbor LATE differences
-Description: describe the LTD distribution for a specified number of clusters
+Keywords: unsupervised propensity scoring nearest neighbor LTD distribution
+Description: describe the NN LTD distribution for a specified number of clusters
 URL: ../R\_HOME/library/USPS/html/UPSnntd.html
                         
 Entry: UPSivadj
 Aliases: plot.UPSivadj, print.UPSivadj
 Keywords: unsupervised propensity scoring instrumental variable adjustment
-Description: plot LATEs vs within cluster PS treatment percentages and fit a linear trend
+Description: plot LOAs vs within cluster PS treatment percentages and fit a linear trend
 URL: ../R\_HOME/library/USPS/html/UPSivadj.html
 
 Entry: UPSgraph
 Aliases: UPSgraph
-Keywords: unsupervised propensity scoring sensitivity of LTDs and LATEs to number of clusters
-Description: sensitivity plot of LTD and LATE mean +/-2 sigma limits vs numbers of clusters
+Keywords: unsupervised propensity scoring sensitivity of LTDs and LOAs to number of clusters
+Description: sensitivity plot of LTD and LOA mean +/-2 sigma limits vs numbers of clusters
 URL: ../R\_HOME/library/USPS/html/UPSgraph.html

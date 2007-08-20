@@ -54,11 +54,11 @@
   Cleveland WS, Grosse E, Shyu WM. (1992) Local regression models. Chapter 8 of
   \bold{Statistical Models in S} eds Chambers JM and Hastie TJ. \emph{Wadsworth & Brooks/Cole}.
 
-  Obenchain RL. (2005) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Ripley BD, loess() based on the 'cloess' package of Cleveland, Grosse and Shyu.
 }
-\author{Bob Obenchain <sunsetstats@earthlink.net>}
+\author{Bob Obenchain <softrx@iquest.net>}
 \seealso{\code{\link{SPSlogit}}, \code{\link{SPSsmoot}} and \code{\link{SPSoutco}}.}
 \examples{
   data(lindner)

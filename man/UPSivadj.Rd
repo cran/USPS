@@ -2,8 +2,9 @@
 \alias{UPSivadj}
 \title{Instrumental Variable LATE Linear Fitting in Unsupervised Propensiy Scoring}
 \description{For a given number of patient clusters in baseline X-covariate space and a
-  specified Y-outcome variable, linearly smooth the distribution of Local Average Treatment
-  Effects (LATEs) plotted versus Within-Cluster Treatment Selection (PS) Percentages.}
+  specified Y-outcome variable, linearly smooth the distribution of Local Average
+  Treatment Effects (LATEs) plotted versus Within-Cluster Treatment Selection (PS)
+  Percentages.}
 \usage{
   ivobj <- UPSivadj(numclust)
 }
@@ -50,13 +51,12 @@
 }
 \references{
   Imbens GW, Angrist JD. (1994) Identification and Estimation  of
-  Local Average Treatment Effects (LATEs). \emph{Econometrica} \bold{62}:
-  467--475.
+  Local Average Treatment Effects (LATEs). \emph{Econometrica} \bold{62}: 467--475.
 
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2005) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   McClellan M, McNeil BJ, Newhouse JP. (1994) Does More Intensive Treatment of
   Myocardial Infarction in the Elderly Reduce Mortality?: Analysis Using Instrumental
@@ -66,7 +66,7 @@
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
   41--55.
 }
-\author{Bob Obenchain <sunsetstats@earthlink.net>}
+\author{Bob Obenchain <softrx@iquest.net>}
 \seealso{\code{\link{UPSnnltd}}, \code{\link{UPSaccum}} and \code{\link{UPSgraph}}.}
 \examples{
   data(lindner)

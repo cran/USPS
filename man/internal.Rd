@@ -4,6 +4,7 @@
 \alias{plot.SPSoutco}
 \alias{plot.UPShclus}
 \alias{plot.UPSivadj}
+\alias{plot.UPSaltdd}
 \alias{print.SPSbalan}
 \alias{print.SPSloess}
 \alias{print.SPSlogit}
@@ -12,9 +13,12 @@
 \alias{print.UPShclus}
 \alias{print.UPSivadj}
 \alias{print.UPSnnltd}
+\alias{print.UPSaltdd}
+\alias{UPlinint}
 \title{Internal USPS functions.}
-\description{Internal method functions for the USPS package.  The functions require a USPS object as their first
- argument, but accept no other arguments ...except optional arguments to plot() or print() that are documented elsewhere.}
-\author{Bob Obenchain <sunsetstats@earthlink.net>}
+\description{Internal method functions for the USPS package.  The functions except UPlinint
+ require a USPS object as their first argument, but accept optional arguments to plot() or
+ print() documented elsewhere.}
+\author{Bob Obenchain <softrx@iquest.net>}
 \keyword{methods}
 \keyword{internal}

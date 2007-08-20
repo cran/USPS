@@ -1,15 +1,33 @@
-SPSbalan                Check for Balance of X-factors Distributions by Treatment within PS Bins
-SPSloess                LOESS Smoothing of Treatment Outcomes vs Propensity Scores
-SPSlogit                Supervised Propensity Scoring via Logistic Regression
-SPSnbins                Change Number of Adjacent Supervised PS Bins
-SPSoutco                Average within PS Bin LTDs across Bins
-SPSsmoot                Spline Smoothing of Treatment Outcomes vs Propensity Scores             
-UPSaccum                Specify Parameters for Accumulation Within and Across Clusters
-UPShclus                Unsupervised Hierarchical Clustering of Patients in X-space
-UPSgraph                Display Sensitivity of the LTD Distribution to Number of Clusters
-UPSivadj                Identify and Display Instrumental Variable "Local Average Treatment
-                        Effects" (LATEs) versus PS Treatment Percentages for a Specified Number
-                        of Clusters 
-UPSnnltd                Identify and Display the Nearest Neighbor "Local Treatment Difference"
-                        (LTD) Distribution for a Specified Number of Clusters
-                          
+lindner                 Data on 996 initial Percutaneous Coronary
+                        Interventions (PCIs) performed in 1997 at the
+                        Lindner Center, Christ Hospital, Cincinnati.
+plot.SPSloess           Display LOESS Smooth of Outcome by Treatment in
+                        Supervised Propensiy Scoring
+plot.SPSsmoot           Display Spline Smooth of Outcome by Treatment
+                        in Supervised Propensiy Scoring
+plot.UPSnnltd           Display plots of the NN/LTD Distribution in
+                        Unsupervised Propensiy Scoring
+SPSbalan                Test for Within-Bin X-covariate Balance in
+                        Supervised Propensiy Scoring
+SPSloess                LOESS Smoothing of Outcome by Treatment in
+                        Supervised Propensiy Scoring
+SPSlogit                Propensity Score prediction of Treatment
+                        Selection from Patient Baseline X-covariates
+SPSnbins                Change the Number of Bins in Supervised
+                        Propensiy Scoring
+SPSoutco                Examine Treatment Differences on an Outcome
+                        Measure in Supervised Propensiy Scoring
+SPSsmoot                Spline Smoothing of Outcome by Treatment in
+                        Supervised Propensiy Scoring
+UPSaccum                Prepare for Accumulation of (Outcome,Treatment)
+                        Results in Unsupervised Propensity Scoring.
+UPSaltdd                Artificial Distribution of LTDs from Random
+                        Clusters
+UPSgraph                Display Sensitivity Analysis Graphic in
+                        Unsupervised Propensiy Scoring
+UPShclus                Hierarchical Clustering of Patients on
+                        X-covariates for Unsupervised Propensiy Scoring
+UPSivadj                Instrumental Variable LOA Linear Fitting in
+                        Unsupervised Propensiy Scoring
+UPSnnltd                Nearest Neighbor Distribution of LTDs in
+                        Unsupervised Propensiy Scoring
