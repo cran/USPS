@@ -51,22 +51,22 @@
 }
 \references{
   Imbens GW, Angrist JD. (1994) Identification and Estimation  of
-  Local Average Treatment Effects (LATEs). \emph{Econometrica} \bold{62}: 467--475.
+  Local Average Treatment Effects (LATEs). \emph{Econometrica} \bold{62}: 467-475.
 
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   McClellan M, McNeil BJ, Newhouse JP. (1994) Does More Intensive Treatment of
   Myocardial Infarction in the Elderly Reduce Mortality?: Analysis Using Instrumental
-  Variables. \emph{JAMA} \bold{272}: 859--866.
+  Variables. \emph{JAMA} \bold{272}: 859-866.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
-  41--55.
+  41-55.
 }
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{UPSnnltd}}, \code{\link{UPSaccum}} and \code{\link{UPSgraph}}.}
 \examples{
   data(lindner)

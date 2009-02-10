@@ -19,6 +19,6 @@
 \description{Internal method functions for the USPS package.  The functions except UPlinint
  require a USPS object as their first argument, but accept optional arguments to plot() or
  print() documented elsewhere.}
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \keyword{methods}
 \keyword{internal}

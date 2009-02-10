@@ -19,15 +19,15 @@
 \references{
   Cochran WG. (1968) The effectiveness of adjustment by subclassification
   in removing bias in observational studies. \emph{Biometrics} \bold{24}:
-  205--213.
+  205-213.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Rosenbaum PR, Rubin DB. (1984) Reducing Bias in Observational Studies
   Using Subclassification on a Propensity Score. \emph{J Amer Stat Assoc}
-  \bold{79}: 516--524.
+  \bold{79}: 516-524.
 }
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{SPSlogit}}, \code{\link{SPSbalan}} and \code{\link{SPSoutco}}.}
 \examples{
   data(lindner)

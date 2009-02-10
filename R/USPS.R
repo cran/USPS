@@ -148,7 +148,7 @@ function (x, ...)
             sub = paste("Divisive Coefficient = ", round(x$upshcl$dc, 
                 digits = 2)))
     }
-    else if (method == "agnes") {
+    else if (x$method == "agnes") {
         plot(x$upshcl, main = "Unsupervised Agglomerative Hierarchy", 
             sub = paste("Agglomerative Coefficient = ", round(x$upshcl$ac, 
                 digits = 2)))

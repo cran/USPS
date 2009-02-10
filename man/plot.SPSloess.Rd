@@ -49,16 +49,16 @@
 \references{
   Cleveland WS, Devlin SJ. (1988) Locally-weighted regression: an
   approach to regression analysis by local fitting. \emph{J Amer Stat Assoc}
-  \bold{83}: 596--610.
+  \bold{83}: 596-610.
 
   Cleveland WS, Grosse E, Shyu WM. (1992) Local regression models. Chapter 8 of
   \bold{Statistical Models in S} eds Chambers JM and Hastie TJ. \emph{Wadsworth & Brooks/Cole}.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Ripley BD, loess() based on the 'cloess' package of Cleveland, Grosse and Shyu.
 }
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{SPSlogit}}, \code{\link{SPSsmoot}} and \code{\link{SPSoutco}}.}
 \examples{
   data(lindner)
@@ -70,5 +70,4 @@
   plot(SPScbls5)   
 }
 \keyword{methods}
-\keyword{hplot}
-
+\keyword{hplot} 

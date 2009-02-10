@@ -1,16 +1,13 @@
 \name{lindner}
 \alias{lindner}
 \docType{data}
-\title{Data on 996 initial Percutaneous Coronary Interventions (PCIs) performed in 1997 at
- the Lindner Center, Christ Hospital, Cincinnati.
-}
-\description{Data from an observational study of 996 patients receiving a PCI at Ohio Heart
-  Health in 1997 and followed for at least 6 months by the staff of the Lindner Center.
-  This is a landmark dataset in the literature on propensity score adjustment for
-  treatment selection bias due to practice of evidence based medicine; patients receiving
-  abciximab tended to be more severely diseased than those who did not receive a IIb/IIIa
-  cascade blocker.
-}
+\title{Lindner Center data on 996 PCI patients analyzed by Kereiakes et al.(2000)}
+\description{Data from an observational study of 996 patients receiving an initial
+  Percutaneous Coronary Intervention (PCI) at Ohio Heart Health, Christ Hospital,
+  Cincinnati in 1997 and followed for at least 6 months by the staff of the Lindner Center.
+  The patients thought to be more severely diseased were assigned to treatment with abciximab
+  (an expensive, high-molecular-weight IIb/IIIa cascade blocker); in fact, only 298 (29.9
+  percent) of patients received usual-care-alone with their initial PCI.}
 \usage{data(lindner)}
 \format{
   A data frame of 10 variables collected on 996 patients; no NAs.
@@ -35,11 +32,11 @@
   }
 }
 \references{
-  Kereiakes DJ, Obenchain RL, Barber BL, et al. (2000) Abciximab provides
-  cost effective survival advantage in high volume interventional practice.
-  \emph{Am Heart J} \bold{140}: 603--610.
+  Kereiakes DJ, Obenchain RL, Barber BL, et al.  Abciximab provides cost
+  effective survival advantage in high volume interventional practice.
+  \emph{Am Heart J} 2000; \bold{140}: 603-610.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 }
 \examples{
     # Demo of USPS functionality on the lindner dataset...

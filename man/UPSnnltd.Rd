@@ -58,16 +58,16 @@
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
   41--55.
 
   Rubin DB. (1980) Bias reduction using Mahalanobis metric matching.
-  \emph{Biometrics} \bold{36}: 293--298.
+  \emph{Biometrics} \bold{36}: 293-298.
 }
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{UPSivadj}}, \code{\link{UPSaccum}} and \code{\link{UPSgraph}}.}
 \examples{
     data(lindner)

@@ -62,14 +62,14 @@
 
   Hastie TJ, Tibshirani RJ. (1990) \bold{Generalized Additive Models}. \emph{Chapman and Hall}.
 
-  Obenchain RL. (2006) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
 
   Sheather SJ, Jones MC. (1991) A reliable data-based bandwidth selection method for kernel
-  density estimation. \emph{J Roy Statist Soc B} \bold{53}: 683--690.
+  density estimation. \emph{J Roy Statist Soc B} \bold{53}: 683-690.
 
   R implementation of smooth.spline() by Ripley BD and Maechler M. ('spar/lambda', etc).
 }
-\author{Bob Obenchain <softrx@iquest.net>}
+\author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{SPSloess}}, \code{\link{SPSbalan}} and \code{\link{SPSoutco}}.}
 \examples{
   data(lindner)
