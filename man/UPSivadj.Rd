@@ -6,7 +6,7 @@
   Treatment Effects (LATEs) plotted versus Within-Cluster Treatment Selection (PS)
   Percentages.}
 \usage{
-  ivobj <- UPSivadj(numclust)
+  UPSivadj(numclust)
 }
 \arguments{
   \item{numclust}{Number of clusters in baseline X-covariate space.}
@@ -56,7 +56,7 @@
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.-
 
   McClellan M, McNeil BJ, Newhouse JP. (1994) Does More Intensive Treatment of
   Myocardial Infarction in the Elderly Reduce Mortality?: Analysis Using Instrumental

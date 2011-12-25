@@ -5,7 +5,7 @@
  Propensity Scores.
 }
 \usage{ 
-  smoobj <- SPSsmoot(dframe, trtm, pscr, yvar, faclev=3, df=5, spar=NULL, cv=F, penalty=1)
+  SPSsmoot(dframe, trtm, pscr, yvar, faclev=3, df=5, spar=NULL, cv=FALSE, penalty=1)
 }
 \arguments{
   \item{dframe}{data.frame of the form returned by SPSlogit().}
@@ -62,7 +62,7 @@
 
   Hastie TJ, Tibshirani RJ. (1990) \bold{Generalized Additive Models}. \emph{Chapman and Hall}.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Sheather SJ, Jones MC. (1991) A reliable data-based bandwidth selection method for kernel
   density estimation. \emph{J Roy Statist Soc B} \bold{53}: 683-690.

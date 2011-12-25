@@ -28,7 +28,7 @@
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Rubin DB. (1980) Bias reduction using Mahalanobis metric matching.
   \emph{Biometrics} \bold{36}: 293-298.

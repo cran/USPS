@@ -4,7 +4,7 @@
 \description{Use a logistic regression model to predict Treatment Selection from Patient
   Baseline X-covariates in Supervised Propensity Scoring.}
 \usage{
-  SPSlobj <- SPSlogit(dframe, form, pfit, prnk, qbin, bins=5, appn="")
+  SPSlogit(dframe, form, pfit, prnk, qbin, bins=5, appn="")
 }
 \arguments{
   \item{dframe}{Name of data.frame containing X, t and Y variables.}
@@ -41,7 +41,7 @@
   cost effective survival advantage in high volume interventional practice.
   \emph{Am Heart J} \bold{140}: 603-610.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:

@@ -5,7 +5,7 @@
   characterizes the distribution of Nearest Neighbor "Local Treatemnt Differences" (LTDs) on
   a specified Y-outcome variable.}
 \usage{
-  nnobj <- UPSnnltd(numclust)
+  UPSnnltd(numclust)
 }
 \arguments{
   \item{numclust}{Number of clusters in baseline X-covariate space.}
@@ -58,7 +58,7 @@
   Obenchain RL. (2004) Unsupervised Propensity Scoring: NN and IV Plots.
   \emph{Proceedings of the American Statistical Association (on CD)} 8 pages.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:

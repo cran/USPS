@@ -2,9 +2,9 @@
 \alias{SPSnbins}
 \title{Change the Number of Bins in Supervised Propensiy Scoring}
 \description{Change the Number of Bins in Supervised Propensiy Scoring}
-\usage{dframe2 <- SPSnbins(dframe1, prnk, qbin, bins=8)}
+\usage{SPSnbins(dframe, prnk, qbin, bins=8)}
 \arguments{
-  \item{dframe1}{Name of data.frame of the form output by SPSlogit().}
+  \item{dframe}{Name of data.frame of the form output by SPSlogit().}
   \item{prnk}{Name of PS tied-rank variable from previous call to SPSlogit().}
   \item{qbin}{Name of variable to contain the re-assigned bin number for each patient.}
   \item{bins}{Number of PS bins desired.}}
@@ -21,7 +21,7 @@
   in removing bias in observational studies. \emph{Biometrics} \bold{24}:
   205-213.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Rosenbaum PR, Rubin DB. (1984) Reducing Bias in Observational Studies
   Using Subclassification on a Propensity Score. \emph{J Amer Stat Assoc}

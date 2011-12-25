@@ -1,0 +1,12 @@
+\documentclass[letterpaper]{article}
+%\VignetteIndexEntry{Unsupervised and Supervised Methods of Propensity Adjustment for Bias}
+%\VignettePackage{USPS}
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\newread\PDFtoInclude
+\openin\PDFtoInclude=USPSinR.pdf
+
+\end{document}

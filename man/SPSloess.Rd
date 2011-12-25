@@ -4,7 +4,7 @@
 \description{Express Expected Outcome by Treatment as LOESS Smooths of Fitted Propensity Scores.
 }
 \usage{
-  losobj <- SPSloess(dframe, trtm, pscr, yvar, faclev=3, deg=2, span=0.75, fam="symmetric")
+  SPSloess(dframe, trtm, pscr, yvar, faclev=3, deg=2, span=0.75, fam="symmetric")
 }
 \arguments{
   \item{dframe}{data.frame of the form returned by SPSlogit().}
@@ -62,7 +62,7 @@
   Cleveland WS, Grosse E, Shyu WM. (1992) Local regression models. Chapter 8 of
   \bold{Statistical Models in S} eds Chambers JM and Hastie TJ. \emph{Wadsworth & Brooks/Cole}.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Ripley BD, loess() based on the 'cloess' package of Cleveland, Grosse and Shyu.
 }

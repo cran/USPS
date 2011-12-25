@@ -4,7 +4,7 @@
 \description{Test for Conditional Independence of X-covariate Distributions from Treatment
   Selection within Given, Adjacent PS Bins.}
 \usage{
-  xcvobj <- SPSbalan(dframe, trtm, qbin, xvar, faclev=3)
+  SPSbalan(dframe, trtm, qbin, xvar, faclev=3)
 }
 \arguments{
   \item{dframe}{Name of augmented data.frame written to the appn="" argument of SPSlogit().}
@@ -37,7 +37,7 @@
   in removing bias in observational studies. \emph{Biometrics} \bold{24}:
   205-213.
 
-  Obenchain RL. (2009) \bold{USPSinR.pdf}  ../R\_HOME/library/USPS  40 pages.
+  Obenchain RL. (2011) \bold{USPSinR.pdf}  USPS R-package vignette, 40 pages.
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
