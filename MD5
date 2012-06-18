@@ -1,12 +1,12 @@
 0753802740a65d5fa28743e02812f3dc *COPYING
-262c222d55298a685d7cf7f0835ce663 *DESCRIPTION
+ebdd7285e67e668b7dec745e8c228cf8 *DESCRIPTION
 633dd24c83abfbd88165e10b5027ce6d *NAMESPACE
-dbf774dab9106147236913e04754692d *R/USPS.R
-1ebf5ba3ba7dae2d1786303466906e76 *data/lindner.rda
+b8594997e8f19b832d1ccfb4753de86e *R/USPS.R
+687b1d3e67a4943536c8199f807fef54 *data/lindner.rda
 34f8dc68c3d3afc1bf4a919ca3481757 *demo/00Index
-3121064cb9e55745f46821e9aa177cd5 *demo/abcix.R
+fab7427527d3a99543d93c25977f57d8 *demo/abcix.R
 d54b9b9c41cc8a301aff844135a96cbb *inst/doc/USPSinR.Rnw
-33412bfc0aa39b04790faa7917cb119d *inst/doc/USPSinR.pdf
+b9abf41b40a8808c4611883a8e221cd2 *inst/doc/USPSinR.pdf
 3919dac20db175b44e4ca86410e3d68b *inst/doc/index.html
 df9579688ad1457d2534c90c19e1c942 *man/SPSbalan.Rd
 fce1be8c6439020e9ffddfe58c3e5884 *man/SPSloess.Rd
@@ -20,7 +20,7 @@ a064af2719e7ecadda0269ea5df8e0e1 *man/UPSgraph.Rd
 0b45dbd7f402b562fe3789c163be6210 *man/UPShclus.Rd
 91834efeff2197c5db3bc3e7203da65f *man/UPSivadj.Rd
 d6bc53bcd949e453365aa7ab0ee15b78 *man/UPSnnltd.Rd
-a8dbff3a182ce9fd01c0e919efa691cc *man/USPS-package.Rd
+b1087adaceb70f162367ab40d0698fe7 *man/USPS-package.Rd
 486aedfdc0341b5261e9740fdde179e4 *man/internal.Rd
 a3fccbc63caa4deeb5107d3d7c7f8a39 *man/lindner.Rd
 e444abcb1272907c6038cf53f45286f4 *man/plot.SPSloess.Rd

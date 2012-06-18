@@ -11,7 +11,7 @@
   \tabular{ll}{
   Package: \tab USPS\cr
   Type: \tab Package\cr
-  Version: \tab 1.3-0\cr
+  Version: \tab 1.2-1\cr
   Date: \tab 2011-12-25\cr
   License: \tab GNU GENERAL PUBLIC LICENSE, Version 2, June 1991\cr
   }

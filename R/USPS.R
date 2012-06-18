@@ -194,7 +194,7 @@ function (x, pballs = TRUE, nnplot = "snob", nnalpha = 1.4, ...)
             xx <- as.vector(x$pbindif[nm])
             ww <- as.vector(x$pbinsde[nm]^-2)
             ww <- round( sum(nn)* ww / sum(ww) )
-            ltdfit <- ssden(~xx, weight = ww, alpha = nnalpha, maxiter = 30)
+            ltdfit <- ssden(~xx, weights = ww, alpha = nnalpha, maxiter = 30)
             xp <- seq(as.numeric(UPSpars[9]),as.numeric(UPSpars[10]), len=101)
         }
         if (nnplot == "all" || nnplot == "seq" || nnplot == "snob") {
@@ -570,7 +570,7 @@ function (dframe, trtm, qbin, xvar, faclev = 3)
         cumdf <- 0
         for (i in 1:bins) {
             ht <- chisq.test(tab[, , i])
-            if (ht$statistic < Inf) {
+            if (is.finite(ht$statistic)) {
                 cumchi <- cumchi + ht$statistic
                 cumdf <- cumdf + ht$parameters
             }
@@ -694,7 +694,7 @@ function (dframe, form, pfit, prnk, qbin, bins = 5, appn = "")
     if (appn == "") 
         dfoutnam <- dfname
     else dfoutnam <- appn
-    assign(dfoutnam, dframe, env = .GlobalEnv)
+    assign(dfoutnam, dframe, envir = .GlobalEnv)
     SPSolist <- list(dfname = dfname, dfoutnam = dfoutnam, trtm = trtm, 
         form = form, pfit = pfit, prnk = prnk, qbin = qbin, bins = bins, 
         glmobj = glmobj)
@@ -821,7 +821,7 @@ function (dframe, trtm, qbin, yvar, faclev = 3)
         cumdf <- 0
         for (i in 1:bins) {
             ht <- chisq.test(tab[, , i])
-            if (!is.na(ht$statistic) && ht$statistic < Inf) {
+            if (!is.na(ht$statistic) && is.finite(ht$statistic)) {
                 cumchi <- cumchi + ht$statistic
                 cumdf <- cumdf + ht$parameters
             }
@@ -991,7 +991,7 @@ function (hiclus, dframe, trtm, yvar, faclev = 3, scedas = "hete",
         yvar, 1, 0, 0))
     names(accdf) <- c("NNIV", "hicl", "dfrm", "trtm", "yvar", 
         "bins", "tdif", "tdse")
-    assign(accobj, accdf, env = .GlobalEnv)
+    assign(accobj, accdf, envir = .GlobalEnv)
 }
 
 "UPSaltdd" <-
@@ -1186,7 +1186,7 @@ function (nncol = "red", nwcol = "green3", ivcol = "blue", ...)
     m <- order(UPSdf$hicl, UPSdf$dfrm, UPSdf$trtm, UPSdf$yvar, 
         UPSdf$NNIV, UPSdf$bins)
     UPSdf <- UPSdf[m, ]
-    assign(UPSpars[7], UPSdf, env = .GlobalEnv)
+    assign(UPSpars[7], UPSdf, envir = .GlobalEnv)
     plot(UPSdf$bins, UPSdf$tdif, ylim = c(min(0, min(UPSdf$tdif - 
         2 * UPSdf$tdse)), max(0, max(UPSdf$tdif + 2 * UPSdf$tdse))), 
         log = "x", ann = FALSE, type = "n")
@@ -1285,7 +1285,7 @@ function (numclust)
         IVolist <- c(IVolist, list(pbinout = pbinout, pbinpsp = pbinpsp, 
             pbinsiz = pbinsiz, symsiz = symsiz))
         if (bins > 1) {
-            ivfit <- lm(pbinout ~ pbinpsp, weight = pbinsiz^2)
+            ivfit <- lm(pbinout ~ pbinpsp, weights = pbinsiz^2)
             ivsum <- summary(ivfit)
             ivtzero <- ivsum$coefficients[[1]]
             ivtzsde <- ivsum$coefficients[[3]]
@@ -1309,7 +1309,7 @@ function (numclust)
     names(accnew) <- c("NNIV", "hicl", "dfrm", "trtm", "yvar", 
         "bins", "tdif", "tdse")
     UPSdf <- as.data.frame(rbind(UPSdf, accnew))
-    assign(UPSpars[7], UPSdf, env = .GlobalEnv)
+    assign(UPSpars[7], UPSdf, envir = .GlobalEnv)
     class(IVolist) <- "UPSivadj"
     IVolist
 }
@@ -1417,7 +1417,7 @@ function (numclust)
         cumdf <- 0
         for (i in 1:bins) {
             ht <- chisq.test(tab[, , i])
-            if (!is.na(ht$statistic) && ht$statistic < Inf) {
+            if (!is.na(ht$statistic) && is.finite(ht$statistic)) {
                 cumchi <- cumchi + ht$statistic
                 cumdf <- cumdf + ht$parameters
             }
@@ -1449,7 +1449,7 @@ function (numclust)
     names(accnew) <- c("NNIV", "hicl", "dfrm", "trtm", "yvar", 
         "bins", "tdif", "tdse")
     UPSdf <- as.data.frame(rbind(UPSdf, accnew))
-    assign(UPSpars[7], UPSdf, env = .GlobalEnv)
+    assign(UPSpars[7], UPSdf, envir = .GlobalEnv)
     if (as.numeric(UPSpars[8]) < nnymax) 
         UPSaccum.pars[8] <<- nnymax
     if (as.numeric(UPSpars[9]) > nnxmin) 

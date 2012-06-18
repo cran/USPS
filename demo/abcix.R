@@ -1,9 +1,6 @@
 require(graphics); require(USPS)
-if(dev.cur() <= 1) get(getOption("device"))()
-
 opar <- par(ask = interactive() &&
         (.Device %in% c("X11", "GTK", "gnome", "windows","quartz","JavaGD")))
-
 #input the abciximab study data of Kereiakes et al. (2000).
 data(lindner)
 # outcomes: lifepres & cardbill
